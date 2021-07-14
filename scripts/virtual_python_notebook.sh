@@ -19,10 +19,8 @@ py_version=3.7.7
 # this is required if that version is not available locally
 install_python_ver_mac $py_version
 
-
 # this will create a python virtual env in "$HOME/temp_py_env/"
 py_env_path="$HOME/temp_py_env/"
 create_py_env $py_env
-
 
 checkpacks $py_version $py_env_path
