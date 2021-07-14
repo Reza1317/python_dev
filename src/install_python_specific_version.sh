@@ -1,6 +1,8 @@
 #!/bin/bash
 # author: Reza Hosseini
 
+echo "file .../install_python_specific_version.sh was sourced"
+
 # these are packages you often need for python dev
 function install_dev_packages_os() {
     install_func=yum
