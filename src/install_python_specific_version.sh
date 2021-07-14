@@ -1,3 +1,4 @@
+#!/bin/bash
 # author: Reza Hosseini
 
 # these are packages you often need for python dev

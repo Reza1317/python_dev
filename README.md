@@ -1,2 +1,2 @@
 # python_dev
-bash functions for easier development
+bash functions for easier python development

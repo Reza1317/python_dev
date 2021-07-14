@@ -1,3 +1,4 @@
+#!/bin/bash
 # author: Reza Hosseini
 # this is to start a python notebook using arbitrary python environments
 # this could as an example a virtual env which includes manual installs

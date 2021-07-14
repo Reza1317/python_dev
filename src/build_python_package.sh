@@ -1,3 +1,4 @@
+#!/bin/bash
 # original author: Reza Hosseini
 # This is a bash file for testing and building python packages
 # It includes useful functions to:
