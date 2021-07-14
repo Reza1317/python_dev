@@ -6,7 +6,7 @@
 # (2) create python virtual environments of desired versions
 # (3) build/test python packages locally with python version of your choice
 
-echo "file .../build_python_package_src.sh was sourced"
+echo "file .../build_python_package.sh was sourced"
 
 # these are packages you often need for python dev
 function install_dev_packages_os() {
