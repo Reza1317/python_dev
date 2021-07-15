@@ -1,3 +1,4 @@
+
 # author: Reza Hosseini
 
 echo "file .../install_python_specific_version.sh was sourced"
@@ -44,8 +45,8 @@ function install_python_ver_mac() {
     # Go to Preference > Locations
     # Select the right version of command-line tools
     # step 2:
-    ver=$1
-    CFLAGS="-I$(brew --prefix openssl)/include -I$(brew --prefix bzip2)/include -I$(brew --prefix readline)/include -I$(xcrun --show-sdk-path)/usr/include" LDFLAGS="-L$(brew --prefix openssl)/lib -L$(brew --prefix readline)/lib -L$(brew --prefix zlib)/lib -L$(brew --prefix bzip2)/lib" pyenv install --patch $ver < <(curl -sSL https://github.com/python/cpython/commit/8ea6353.patch\?full_index\=1)
+    py_version=$1
+    CFLAGS="-I$(brew --prefix openssl)/include -I$(brew --prefix bzip2)/include -I$(brew --prefix readline)/include -I$(xcrun --show-sdk-path)/usr/include" LDFLAGS="-L$(brew --prefix openssl)/lib -L$(brew --prefix readline)/lib -L$(brew --prefix zlib)/lib -L$(brew --prefix bzip2)/lib" pyenv install --patch $py_version < <(curl -sSL https://github.com/python/cpython/commit/8ea6353.patch\?full_index\=1)
     # set the version
     # this is needed because
     # pyenv seems to require explicit .python-version file to be set
