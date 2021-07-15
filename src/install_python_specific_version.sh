@@ -1,4 +1,3 @@
-#!/bin/bash
 # author: Reza Hosseini
 
 echo "file .../install_python_specific_version.sh was sourced"

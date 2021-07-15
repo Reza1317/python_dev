@@ -11,6 +11,8 @@ bash <(curl -s $f1)
 bash <(curl -s $f2)
 bash <(curl -s $f3)
 
+source <(curl -s $f2)
+
 
 # this is the desired python version
 py_version=3.7.7
