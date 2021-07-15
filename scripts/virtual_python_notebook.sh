@@ -22,7 +22,7 @@ py_version=3.8.0
 install_python_ver_mac $py_version
 
 # this should work for centos
-install_python_ver_centos $py_version
+# install_python_ver_centos $py_version
 
 # this will create a python virtual env in "$HOME/temp_py_env/"
 py_env_path="$HOME/temp_py_env/"
