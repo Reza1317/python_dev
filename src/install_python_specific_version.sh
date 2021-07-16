@@ -1,7 +1,7 @@
 
 # author: Reza Hosseini
 
-echo "file .../install_python_specific_version.sh was sourced"
+echo "file .../install_python_specific_version.sh is sourced."
 
 # these are packages you often need for python dev
 function install_dev_packages_os() {

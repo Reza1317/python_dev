@@ -2,9 +2,8 @@
 # author: Reza Hosseini
 # this is to start a python notebook using arbitrary python environments
 # this could as an example a virtual env which includes manual installs
-echo "file .../start_python_notebook.sh was sourced"
 
-
+echo "file .../start_python_notebook.sh is sourced."
 
 
 function start_python_notebook() {
@@ -42,5 +41,10 @@ function start_python_notebook() {
 
     # starts notebook
     printf "starts notebook"
-    jupyter notebook $(cat Untitled.ipynb >test_notebook.ipynb && echo test_notebook.ipynb)
+    if [[ "$OSTYPE" == "darwin"* ]]; then
+        jupyter notebook $(cat Untitled.ipynb >test_notebook.ipynb && echo test_notebook.ipynb)
+    else
+        # this should work for linux
+        jupyter notebook;
+    fi
 }
