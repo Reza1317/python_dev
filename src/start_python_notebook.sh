@@ -2,9 +2,7 @@
 # author: Reza Hosseini
 # this is to start a python notebook using arbitrary python environments
 # this could as an example a virtual env which includes manual installs
-
 echo "file .../start_python_notebook.sh was sourced"
-
 
 function start_python_notebook() {
     printf "you are starting a notebook based on this python:"
