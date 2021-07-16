@@ -8,10 +8,10 @@ rm -rf $HOME/temp_code_dir
 mkdir $HOME/temp_code_dir
 git -C $HOME/temp_code_dir clone https://github.com/Reza1317/python_dev.git
 # this sources the files which contain python dev bash commands
-. $HOME/temp_code_dir/python_dev/src/install_python_specific_version.sh
-. $HOME/temp_code_dir/python_dev/src/create_py_env.sh
-. $HOME/temp_code_dir/python_dev/src/build_python_package.sh
-. $HOME/temp_code_dir/python_dev/src/start_python_notebook.sh
+. $HOME/temp_code_dir/python_dev/src/install_python_specific_version.sh;
+. $HOME/temp_code_dir/python_dev/src/create_py_env.sh;
+. $HOME/temp_code_dir/python_dev/src/build_python_package.sh;
+. $HOME/temp_code_dir/python_dev/src/start_python_notebook.sh;
 
 
 

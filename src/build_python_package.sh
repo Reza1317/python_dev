@@ -16,9 +16,9 @@ function build_and_install_py_package_locally() {
     create_temp_py_env $1;
     # test your virtual environment install
     # you need to get: $HOME/temp_py_env/env/bin/python
-    which python
+    which python;
     # you might need to get: Python 3.7.7
-    python --version
+    python --version;
 
     # run setup
     cd $2
