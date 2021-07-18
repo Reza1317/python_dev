@@ -1,6 +1,6 @@
 # author: Reza Hosseini
 
-# some commands to check existing python on the os
+# some commands to check existing python installations on the os
 
 # on Mac, check what versions of python are installed
 brew list | grep python

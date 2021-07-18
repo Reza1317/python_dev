@@ -11,6 +11,7 @@ git -C $HOME/temp_code_dir clone https://github.com/Reza1317/python_dev.git
 . $HOME/temp_code_dir/python_dev/src/create_py_env.sh
 . $HOME/temp_code_dir/python_dev/src/build_python_package.sh
 . $HOME/temp_code_dir/python_dev/src/start_python_notebook.sh
+. $HOME/temp_code_dir/python_dev/src/os_dependencies.sh
 
 
 # might need: brew install openblas.

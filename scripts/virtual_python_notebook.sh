@@ -8,11 +8,22 @@ rm -rf $HOME/temp_code_dir
 mkdir $HOME/temp_code_dir
 git -C $HOME/temp_code_dir clone https://github.com/Reza1317/python_dev.git
 # this sources the files which contain python dev bash commands
-. $HOME/temp_code_dir/python_dev/src/install_python_specific_version.sh;
-. $HOME/temp_code_dir/python_dev/src/create_py_env.sh;
-. $HOME/temp_code_dir/python_dev/src/build_python_package.sh;
-. $HOME/temp_code_dir/python_dev/src/start_python_notebook.sh;
+. $HOME/temp_code_dir/python_dev/src/install_python_specific_version.sh
+. $HOME/temp_code_dir/python_dev/src/create_py_env.sh
+. $HOME/temp_code_dir/python_dev/src/build_python_package.sh
+. $HOME/temp_code_dir/python_dev/src/start_python_notebook.sh
+. $HOME/temp_code_dir/python_dev/src/os_dependencies.sh
 
+
+# first if you have used your machine for dev work
+# you might need to install some dev packages
+# look up the file: $HOME/temp_code_dir/python_dev/src/os_dependencies.sh
+# to get some clue
+# you may want to run either of the commands in that file
+# run them at your own risk! (as they are installing packades on your os)
+# for mac you can run: install_dev_packages_mac
+# for centos/fedora you can run: install_dev_packages_os yum
+# for ubuntu/debian: you can run: install_dev_packages_os apt-get
 
 
 # this specifies your desired python version

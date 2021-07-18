@@ -4,22 +4,22 @@
 echo "file .../install_python_specific_version.sh is sourced."
 
 # these are packages you often need for python dev
-function install_dev_packages_os() {
-    install_func=yum
-    sudo $install_func install gcc openssl-devel bzip2-devel libffi-devel zlib-devel
-    sudo $install_func install glpk
-    sudo $install_func install atlas-devel atlas lapack blas lapack-devel
-    sudo $install_func install openblas-devel hdf5-devel
-    sudo $install_func install bzip2-devel
-    sudo $install_func install libjpeg-devel
-    sudo $install_func install gcc-c++
-    sudo $install_func install qdldl
+# usage: install_dev_packages_os yum
+function install_dev_packages_linux() {
+    $1 gcc openssl-devel bzip2-devel libffi-devel zlib-devel
+    $1 install glpk
+    $1 install atlas-devel atlas lapack blas lapack-devel
+    $1 install openblas-devel hdf5-devel
+    $1 install bzip2-devel
+    $1 install libjpeg-devel
+    $1 install gcc-c++
+    $1 install qdldl
     # these are also often needed especially for installing/using Cairo
-    sudo $install_func install cmake gcc-gfortran libpng-devel libjpeg-devel
-    sudo $install_func install libxml2-devel libxslt-devel sqlite sqlite-devel
-    sudo $install_func install bzip2-devel gdbm-devel openssl-devel tcl-devel
-    sudo $install_func install tk-devel db4-devel expat-devel libffi-devel gcc-c++
-    sudo $install_func install mesa-libGL-devel mesa-libGLU-devel libXt-devel automake
+    $1 install cmake gcc-gfortran libpng-devel libjpeg-devel
+    $1 install libxml2-devel libxslt-devel sqlite sqlite-devel
+    $1 install bzip2-devel gdbm-devel openssl-devel tcl-devel
+    $1 install tk-devel db4-devel expat-devel libffi-devel gcc-c++
+    $1 install mesa-libGL-devel mesa-libGLU-devel libXt-devel automake
 }
 
 
