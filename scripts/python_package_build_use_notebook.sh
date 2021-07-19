@@ -7,16 +7,25 @@ rm -rf $HOME/temp_code_dir
 mkdir $HOME/temp_code_dir
 git -C $HOME/temp_code_dir clone https://github.com/Reza1317/python_dev.git
 # we source the files which contain python dev bash commands
-. $HOME/temp_code_dir/python_dev/src/install_python_specific_version.sh
-. $HOME/temp_code_dir/python_dev/src/create_py_env.sh
-. $HOME/temp_code_dir/python_dev/src/build_python_package.sh
-. $HOME/temp_code_dir/python_dev/src/start_python_notebook.sh
-. $HOME/temp_code_dir/python_dev/src/os_dependencies.sh
-
+for f in $HOME/temp_code_dir/python_dev/src/*; do source $f; done
 
 # might need: brew install openblas.
 
-py_version="3.8.0"
+# this specifies your desired python version
+py_version=3.8.0
+
+# run this command only if you need to install that version
+# this is required if that version is not available locally
+# the virtual environment can be only created if
+# python with that version is already installed locally on the OS
+# this should work for Mac or linux (tried on centos):
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    # this is for mac
+    install_python_ver_mac $py_version
+else
+    # this is for centos
+    install_python_ver_centos $py_version;
+fi
 
 
 repo_path="$HOME/codes/greykite"
