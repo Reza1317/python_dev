@@ -27,6 +27,7 @@ function install_dev_packages_linux() {
 # e.g. "yum install" does not work for python 3.7 and later
 # Usage: install_python_ver_centos 3.7.7
 function install_python_ver_centos() {
+    cd
     ver=$1
     wget https://www.python.org/ftp/python/$1/Python-$ver.tgz
     tar xzf Python-$ver.tgz
@@ -45,6 +46,7 @@ function install_python_ver_mac() {
     # Go to Preference > Locations
     # Select the right version of command-line tools
     # step 2:
+    cd
     py_version=$1
     CFLAGS="-I$(brew --prefix openssl)/include -I$(brew --prefix bzip2)/include -I$(brew --prefix readline)/include -I$(xcrun --show-sdk-path)/usr/include" LDFLAGS="-L$(brew --prefix openssl)/lib -L$(brew --prefix readline)/lib -L$(brew --prefix zlib)/lib -L$(brew --prefix bzip2)/lib" pyenv install --patch $py_version < <(curl -sSL https://github.com/python/cpython/commit/8ea6353.patch\?full_index\=1)
     # set the version
