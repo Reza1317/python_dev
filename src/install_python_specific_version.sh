@@ -38,14 +38,24 @@ function install_python_ver_centos() {
 }
 
 
+# run this if you like to un-install python version first
+function delete_python_ver_mac() {
+    ls $HOME/.pyenv/versions
+    rm -rf ls $HOME/.pyenv/versions/$ver
+}
+
 # install and use a specific python version on MacOS
 # Usage: install_python_ver_mac 3.7.7
 function install_python_ver_mac() {
-    # step 1:
-    # Open Xcode-beta.app
-    # Go to Preference > Locations
-    # Select the right version of command-line tools
-    # step 2:
+    echo "You might need to do this first: (if not done before)"
+    echo "step 1:"
+    echo "1.a Open Xcode-beta.app"
+    echo "1.b Go to Preference > Locations"
+    echo "1.c Select the right version of command-line tools"
+    echo "step 2 started:"
+    export LDFLAGS="-L/usr/local/opt/zlib/lib -L/usr/local/opt/bzip2/lib"
+    export CPPFLAGS="-I/usr/local/opt/zlib/include -I/usr/local/opt/bzip2/include"
+    export OPENBLAS="$(brew --prefix openblas)"
     cd
     py_version=$1
     CFLAGS="-I$(brew --prefix openssl)/include -I$(brew --prefix bzip2)/include -I$(brew --prefix readline)/include -I$(xcrun --show-sdk-path)/usr/include" LDFLAGS="-L$(brew --prefix openssl)/lib -L$(brew --prefix readline)/lib -L$(brew --prefix zlib)/lib -L$(brew --prefix bzip2)/lib" pyenv install --patch $py_version < <(curl -sSL https://github.com/python/cpython/commit/8ea6353.patch\?full_index\=1)
