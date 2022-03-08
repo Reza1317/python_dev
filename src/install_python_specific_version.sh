@@ -29,12 +29,20 @@ function install_dev_packages_linux() {
 function install_python_ver_centos() {
     cd
     ver=$1
+    echo "Step 1: download Python of the version specified using wget"
     wget https://www.python.org/ftp/python/$1/Python-$ver.tgz
+    echo "Step 2: unzip Python"
     tar xzf Python-$ver.tgz
     cd Python-$ver
+    echo "Step 3: configure bzip"
     ./configure --with-libs='bzip'
     ./configure --enable-optimizations
+    echo "Step 4: Install python using `make`"
     sudo make altinstall
+    echo "Step 5: update pip"
+    pip install --upgrade pip
+    echo "python version:"
+    echo python --version
 }
 
 
@@ -48,11 +56,11 @@ function delete_python_ver_mac() {
 # Usage: install_python_ver_mac 3.7.7
 function install_python_ver_mac() {
     echo "You might need to do this first: (if not done before)"
-    echo "step 1:"
+    echo "Step 1:"
     echo "1.a Open Xcode-beta.app"
     echo "1.b Go to Preference > Locations"
     echo "1.c Select the right version of command-line tools"
-    echo "step 2 started:"
+    echo "Step 2 started:"
     export LDFLAGS="-L/usr/local/opt/zlib/lib -L/usr/local/opt/bzip2/lib"
     export CPPFLAGS="-I/usr/local/opt/zlib/include -I/usr/local/opt/bzip2/include"
     export OPENBLAS="$(brew --prefix openblas)"
@@ -63,5 +71,23 @@ function install_python_ver_mac() {
     # this is needed because
     # pyenv seems to require explicit .python-version file to be set
     # in the current directory for any other version than the default in
+    echo "Step 3: update pip"
+    pip install --upgrade pip
+    echo "Step 4: setting up the global python env to be the new version"
+    echo "Note that if conda/ anaconda settings in bash file are run after, this pyenv global will be over-ruled by conda"
+    echo "Remove anoconda blurb from bash profile or convert the commands to a function to run as per need."
     pyenv global $1
+    echo "python version:"
+    echo python --version
+    echo "Step 4: install some useful libraries: ipython, notebook, pandas"
+    pip install ipython
+    pip install notebook
+    pip install pandas
+
+    echo "make sure your jupyter kernel specs are good. If not delete them"
+    jupyter kernelspec list
 }
+
+
+
+# END
