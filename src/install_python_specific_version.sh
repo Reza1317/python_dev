@@ -55,6 +55,11 @@ function delete_python_ver_mac() {
 # install and use a specific python version on MacOS
 # Usage: install_python_ver_mac 3.7.7
 function install_python_ver_mac() {
+    echo "Eventhough you are installing python for virtual env, it might be good to update base Pythons on you mac"
+    echo "The base Pythons are typically located at: `/usr/local/bin`"
+    echo "This can be done with: `brew install python`"
+    echo "For example it seems like envoking notebooks under Python virtual env still somehow infers to base Pythons"
+    echo "This command will  install Python in this path: ``$HOME/.pyenv/shims/python``"
     echo "You might need to do this first: (if not done before)"
     echo "Step 1:"
     echo "1.a Open Xcode-beta.app"
