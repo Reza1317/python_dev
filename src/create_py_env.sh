@@ -32,10 +32,10 @@ function create_py_env() {
     # pip install wheel
     # pip install setuptools
     printf "Updating setup tools"
-    pip install --upgrade setuptools wheel
-    pip install wheel
-    pip install twine
-    pip install tox
+    # pip install --upgrade setuptools wheel
+    # pip install wheel
+    # pip install twine
+    # pip install tox
 }
 
 
@@ -49,3 +49,36 @@ function create_temp_py_env() {
     create_py_env $1 $py_env_path
     which python
 };
+
+
+
+# creates a python env under a project name
+create_python_project () {
+    project=$1
+    py_ver=$2
+    echo $project
+    echo $py_ver
+    py_ver_short=$(echo $py_ver | cut -c1-3)
+
+    cd $HOME
+    mkdir python_projects
+    rm -rf python_projects/$project
+    mkdir python_projects/$project
+    cd python_projects/$project
+
+    py_env_path="$HOME/python_projects/$project/"
+
+    echo "make sure you have that version installed"
+    echo "if not on mac use: install_python_ver_mac py_ver" 
+
+    create_py_env $py_ver $py_env_path
+    which python
+    python --version
+    pip install --upgrade pip
+
+    ls $py_env_path/env/lib/python$py_ver_short/site-packages/
+
+    pip install pandas
+}
+
+

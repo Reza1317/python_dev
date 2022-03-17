@@ -57,6 +57,10 @@ function delete_python_ver_mac() {
 function install_python_ver_mac() {
     echo "Eventhough you are installing python for virtual env, it might be good to update base Pythons on you mac"
     echo "The base Pythons are typically located at: `/usr/local/bin`"
+    ls /usr/local/bin/python*
+    echo "The other path used by this install is: `$HOME/.pyenv/versions`"
+    ls $HOME/.pyenv/versions
+    ls $HOME/.pyenv/shims/python
     echo "This can be done with: `brew install python`"
     echo "For example it seems like envoking notebooks under Python virtual env still somehow infers to base Pythons"
     echo "This command will  install Python in this path: ``$HOME/.pyenv/shims/python``"
@@ -85,9 +89,9 @@ function install_python_ver_mac() {
     echo "python version:"
     echo python --version
     echo "Step 4: install some useful libraries: ipython, notebook, pandas"
-    pip install ipython
-    pip install notebook
-    pip install pandas
+    # pip install ipython
+    # pip install notebook
+    # pip install pandas
 
     echo "make sure your jupyter kernel specs are good. If not delete them"
     jupyter kernelspec list
