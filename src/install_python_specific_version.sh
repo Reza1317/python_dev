@@ -24,9 +24,10 @@ function install_dev_packages_linux() {
 
 
 # centos does not make it easy to install newer versions of python
+# this is not using pyenv
 # e.g. "yum install" does not work for python 3.7 and later
 # Usage: install_python_ver_centos 3.7.7
-function install_python_ver_centos() {
+function install_python_ver_centos2() {
     cd
     ver=$1
     echo "Step 1: download Python of the version specified using wget"
@@ -52,7 +53,7 @@ function delete_python_ver_mac() {
     rm -rf ls $HOME/.pyenv/versions/$ver
 }
 
-# install and use a specific python version on MacOS
+# install and use a specific python version on MacOS using pyenv
 # Usage: install_python_ver_mac 3.7.7
 function install_python_ver_mac() {
     echo "Eventhough you are installing python for virtual env, it might be good to update base Pythons on you mac"
@@ -97,6 +98,41 @@ function install_python_ver_mac() {
     jupyter kernelspec list
 }
 
+
+function install_python_ver_centos() {
+    echo "Eventhough you are installing python for virtual env, it might be good to update base Pythons on you mac"
+    echo "The base Pythons are typically located at: `/usr/local/bin`"
+    ls /usr/local/bin/python*
+    echo "The other path used by this install is: `$HOME/.pyenv/versions`"
+    ls $HOME/.pyenv/versions
+    ls $HOME/.pyenv/shims/python
+    echo "This can be done with: `curl https://pyenv.run | bash`"
+    echo "For example it seems like envoking notebooks under Python virtual env still somehow infers to base Pythons"
+    echo "This command will  install Python in this path: ``$HOME/.pyenv/shims/python``"
+    cd
+    py_version=$1
+    echo "Step 1: install python with pyenv"
+    pyenv install $py_version
+    # set the version
+    # this is needed because
+    # pyenv seems to require explicit .python-version file to be set
+    # in the current directory for any other version than the default in
+    echo "Step 2: update pip"
+    pip install --upgrade pip
+    echo "Step 3: setting up the global python env to be the new version"
+    echo "Note that if conda/ anaconda settings in bash file are run after, this pyenv global will be over-ruled by conda"
+    echo "Remove anoconda blurb from bash profile or convert the commands to a function to run as per need."
+    pyenv global $1
+    echo "python version:"
+    echo python --version
+    echo "Step 4: install some useful libraries: ipython, notebook, pandas"
+    # pip install ipython
+    # pip install notebook
+    # pip install pandas
+
+    echo "make sure your jupyter kernel specs are good. If not delete them"
+    jupyter kernelspec list
+}
 
 
 # END
