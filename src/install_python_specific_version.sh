@@ -131,6 +131,7 @@ function install_python_ver_centos() {
     # pip install pandas
 
     echo "make sure your jupyter kernel specs are good. If not delete them"
+    pip install jupyter
     jupyter kernelspec list
 }
 
