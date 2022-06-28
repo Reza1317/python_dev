@@ -69,13 +69,16 @@ create_python_project () {
     py_env_path="$HOME/python_projects/$project/"
 
     echo "make sure you have that version installed"
-    echo "if not on mac use: install_python_ver_mac py_ver" 
+    echo "if not on mac use: install_python_ver_mac py_ver"
 
     create_py_env $py_ver $py_env_path
+    # source $HOME/python_projects/$project/env/bin/activate
+    echo "** check if python is activated correctly"
     which python
     python --version
     pip install --upgrade pip
 
+    echo "** installed python packages:"
     ls $py_env_path/env/lib/python$py_ver_short/site-packages/
 
     pip install pandas
