@@ -81,7 +81,5 @@ create_python_project () {
     echo "** installed python packages:"
     ls $py_env_path/env/lib/python$py_ver_short/site-packages/
 
-    pip install pandas
+    # pip install pandas
 }
-
-
