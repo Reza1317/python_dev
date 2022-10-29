@@ -87,5 +87,5 @@ create_python_project () {
 
 activate_python_project () {
     project=$1
-    source python_projects/$project/env/bin/activate
+    source $HOME/python_projects/$project/env/bin/activate
 }
