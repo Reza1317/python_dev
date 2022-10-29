@@ -83,3 +83,9 @@ create_python_project () {
 
     # pip install pandas
 }
+
+
+activate_python_project () {
+    project=$1
+    source python_projects/$project/env/bin/activate
+}
