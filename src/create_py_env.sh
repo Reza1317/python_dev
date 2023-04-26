@@ -15,7 +15,8 @@ function create_py_env() {
     fi
     # the following does not work since we are on python 3.10 plus
     # py_ver_short=$(echo $1 | cut -c1-3)
-    py_ver_short="${$1%.*}"
+    py_ver=$1
+    py_ver_short="${py_ver%.*}"
     python$py_ver_short -m venv env
     echo "This is the form version of py_version"
     echo $py_ver_short
@@ -62,7 +63,8 @@ create_python_project () {
     py_ver=$2
     echo $project
     echo $py_ver
-    py_ver_short=$(echo $py_ver | cut -c1-3)
+    # py_ver_short=$(echo $py_ver | cut -c1-3)
+    py_ver_short="${py_ver%.*}"
 
     cd $HOME
     mkdir python_projects
