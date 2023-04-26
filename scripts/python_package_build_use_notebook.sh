@@ -13,7 +13,8 @@ for f in $HOME/temp_code_dir/python_dev/src/*; do source $f; done
 # might need: brew install openblas.
 
 # this specifies your desired python version
-py_version=3.8.1
+# py_version=3.8.1
+py_version=3.10.1
 
 # run this command only if you need to install that version
 # this is required if that version is not available locally

@@ -40,10 +40,10 @@ fi
 
 
 # this creates a python virtual env in "$HOME/temp_py_env/"
-py_env_path="$HOME/temp_py_env/"
-rm -rf $py_env_path
-mkdir $py_env_path
-create_py_env $py_version $py_env_path
+py_env_path="$HOME/temp_py_env/";
+rm -rf $py_env_path;
+mkdir $py_env_path;
+create_py_env $py_version $py_env_path;
 
 # checks if python is pointing to the right location
 which python
